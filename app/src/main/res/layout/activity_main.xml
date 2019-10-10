@@ -31,7 +31,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/rock" />
+            app:srcCompat="@drawable/rock" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/paper" />
+            app:srcCompat="@drawable/paper" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Result:"
-            android:textSize="55dp" />
+            android:textSize="30dp" />
 
 
     </LinearLayout>
