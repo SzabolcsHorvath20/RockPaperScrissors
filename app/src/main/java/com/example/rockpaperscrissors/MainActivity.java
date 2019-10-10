@@ -116,6 +116,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             text = "Both chose the same thing!";
         }
         standing.setText(String.format("Computer %d | %d Player",pointsPC,pointsPlayer));
-        Toast.makeText(MainActivity.this, text, Toast.LENGTH_SHORT).show();
+        result.setText(text);
     }
 }
