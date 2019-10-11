@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
             alertDialog.setTitle("Congratulations");
             alertDialog.setMessage("You won the game! Do you want to play one more?");
+            alertDialog.setCancelable(false);
             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "PLAY AGAIN",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -167,7 +168,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                             finish();
-                            System.exit(0);
                         }
                     });
             alertDialog.show();
@@ -191,6 +191,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
             alertDialog.setTitle("GAME OVER");
             alertDialog.setMessage("The computer beat you! Do you want to try again?");
+            alertDialog.setCancelable(false);
             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "PLAY AGAIN",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -205,7 +206,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                             finish();
-                            System.exit(0);
                         }
                     });
             alertDialog.show();
