@@ -1,5 +1,6 @@
 package com.example.rockpaperscrissors;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -15,9 +16,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button btnR, btnP, btnS;
     private TextView result, standing;
-    private ImageView imagePC, imagePlayer;
+    private ImageView imagePC, imagePlayer, PC1, PC2, PC3, Player1, Player2, Player3;
     private Random rnd;
     private int pointsPC, pointsPlayer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         standing = findViewById(R.id.TextStanding);
         imagePC = findViewById(R.id.ImagePC);
         imagePlayer = findViewById(R.id.ImagePlayer);
+        PC1 = findViewById(R.id.PC1);
+        PC2 = findViewById(R.id.PC2);
+        PC3 = findViewById(R.id.PC3);
+        Player1 = findViewById(R.id.Player1);
+        Player2 = findViewById(R.id.Player2);
+        Player3 = findViewById(R.id.Player3);
+
         rnd = new Random();
         pointsPC = 0;
         pointsPlayer = 0;
@@ -81,35 +90,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         String text = "";
+
+
         if (pcChoice.equals("rock") && playersChoice.equals("paper"))
         {
             pointsPlayer++;
             text = "Paper is better!";
+            PCHP();
         }
         else if (pcChoice.equals("rock") && playersChoice.equals("scissors"))
         {
             pointsPC++;
             text = "Rock breaks scissors!";
+            PlayerHP();
         }
         else if (pcChoice.equals("paper") && playersChoice.equals("rock"))
         {
             pointsPC++;
             text = "Paper is better!";
+            PlayerHP();
         }
         else if (pcChoice.equals("paper")&& playersChoice.equals("scissors"))
         {
             pointsPlayer++;
             text = "Scissors cuts paper!";
+            PCHP();
         }
         else if (pcChoice.equals("scissors") && playersChoice.equals("rock"))
         {
             pointsPlayer++;
             text = "Rock breaks scissors!";
+            PCHP();
         }
         else if (pcChoice.equals("scissors") && playersChoice.equals("paper"))
         {
             pointsPC++;
             text = "Scissors cuts paper!";
+            PlayerHP();
         }
         else if (pcChoice.equals(playersChoice))
         {
@@ -117,5 +134,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         standing.setText(String.format("Computer %d | %d Player",pointsPC,pointsPlayer));
         result.setText(text);
+    }
+    public void PCHP()
+    {
+        if (pointsPlayer == 1)
+        {
+            PC1.setImageResource(R.drawable.hp_lost);
+        }
+        if (pointsPlayer == 2)
+        {
+            PC2.setImageResource(R.drawable.hp_lost);
+        }
+        if (pointsPlayer == 3)
+        {
+            PC3.setImageResource(R.drawable.hp_lost);
+
+        }
+
+
+    }
+    public void PlayerHP()
+    {
+        if (pointsPC == 1)
+        {
+            Player1.setImageResource(R.drawable.hp_lost);
+        }
+        if (pointsPC == 2)
+        {
+            Player2.setImageResource(R.drawable.hp_lost);
+        }
+        if (pointsPC == 3)
+        {
+            Player3.setImageResource(R.drawable.hp_lost);
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        }
+
+
     }
 }
