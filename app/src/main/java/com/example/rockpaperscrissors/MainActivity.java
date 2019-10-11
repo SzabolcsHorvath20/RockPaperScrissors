@@ -3,6 +3,8 @@ package com.example.rockpaperscrissors;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -148,7 +150,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (pointsPlayer == 3)
         {
             PC3.setImageResource(R.drawable.hp_lost);
-
+            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+            alertDialog.setTitle("Congratulations");
+            alertDialog.setMessage("You won the game! Do you want to play one more?");
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "PLAY AGAIN",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            Intent main_activity = new Intent(MainActivity.this,MainActivity.class);
+                            finish();
+                            startActivity(main_activity);
+                        }
+                    });
+            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "EXIT",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            finish();
+                            System.exit(0);
+                        }
+                    });
+            alertDialog.show();
         }
 
 
@@ -166,7 +188,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (pointsPC == 3)
         {
             Player3.setImageResource(R.drawable.hp_lost);
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+            alertDialog.setTitle("GAME OVER");
+            alertDialog.setMessage("The computer beat you! Do you want to try again?");
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "PLAY AGAIN",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            Intent main_activity = new Intent(MainActivity.this,MainActivity.class);
+                            finish();
+                            startActivity(main_activity);
+                        }
+                    });
+            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "EXIT",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            finish();
+                            System.exit(0);
+                        }
+                    });
+            alertDialog.show();
         }
 
 
